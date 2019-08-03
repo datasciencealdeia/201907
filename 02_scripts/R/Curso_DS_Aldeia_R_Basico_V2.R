@@ -1,4 +1,4 @@
-setwd('C:\\Users\\rafael.dias\\Documents\\Cursos e Palestras')
+setwd('/home/ds/git/201907/02_scripts/R/')
 
 # Baixando e Instalando Pacotes
 
@@ -18,37 +18,37 @@ caracter <-  ("Exemplo Caracter")
 
 class(caracter)
 
- # ou
+# ou
 
 is.character(caracter)
 
 caracter
 
-## Numérico
+## Numerico
 
 numerico <- 13
 
 class(numerico)
 
- # ou
+# ou
 
 is.numeric(numerico)
 
 ## Data
 
-data <- as.Date('2019-04-06')
+data <- as.Date('2019-07-28')
 
 class(data)
 
 # Criando um objeto Caracter Simples
 
-turma_ds <- ("A Melhor Turma de Todas!")
+turma_ds <- ("Rumo ao Futuro")
 
-# Mostrar na tela o conteúdo do objeto
+# Mostrar na tela o conteudo do objeto
 
 print(turma_ds)
 
-# Criando objetos numéricos
+# Criando objetos numericos
 
 dois <- 2
 
@@ -56,13 +56,13 @@ dez <- 10
 
 vinte <- 20
 
-# Funções matemáticas:
+# Funcoes matematicas:
 
 ## Soma
 
 dez + vinte
 
-  # ou
+# ou
 
 10 + 20
 
@@ -70,7 +70,7 @@ dez + vinte
 
 dez - vinte
 
-## Divisão
+## Divisao
 
 vinte / dez
 
@@ -82,19 +82,19 @@ dois ^ dez
 
 sqrt(vinte*dez)
 
-  # ou
+# ou
 
 sqrt(20*10)
 
-## Logarítmo
+## Logaritmo
 
 log(vinte)
 
-## Média
+## Media
 
 (dois+dez+vinte)/3
 
- # ou
+# ou
 
 media <- mean(c(dois,dez,vinte))
 
@@ -112,10 +112,10 @@ y <- c(1^2,2^2,3^2,4^2,5^2,6^2)
 
 y
 
-# É o jeito mais fácil?
+# E o jeito mais facil?
 
 
-# Não!!!!
+# Nao!!!!
 
 y <- x^2 
 
@@ -133,21 +133,21 @@ soma_x_y <- c(sum(x),sum(y))
 
 print(soma_x_y)
 
-# Calculando a média do Vetor
+# Calculando a media do Vetor
 
 mean(y)               
 
-# A variância
+# A variancia
 
 var(y)                
 
 var(x)
 
-# O desvio padrão
+# O desvio padrao
 
 sqrt(var(y))
 
- # ou
+# ou
 
 sd(y)
 
@@ -177,7 +177,7 @@ w
 
 class(w)
 
-## Operações com Matrizes
+## Operacoes com Matrizes
 
 z + 1
 
@@ -185,7 +185,7 @@ z * 10
 
 z / 10
 
-## Operações entre Matrizes
+## Operacoes entre Matrizes
 
 z2 <- cbind(x*2,y*2)
 
@@ -226,7 +226,7 @@ z[1,1]
 
 lista[[1]][1,1]
 
-# Criando Gráficos
+# Criando Graficos
 
 riqueza <- c(15,18,22,24,25,30,31,34,37,39,41,43)
 
@@ -238,15 +238,17 @@ plot(riqueza~area)
 
 plot(area,riqueza) # o mesmo que o anterior
 
-# Editando os gráficos
+# Editando os graficos
 
 ## Aumentando as margens
 
 par(cex=1.2)
 
-## Representação gráfica do diagrama dos cinco números
+## Representacao grafica do diagrama dos cinco numeros
 
 boxplot(riqueza~area.cate)
+
+boxplot(riqueza~area.cate, horizontal = TRUE, col = c("grey","gold"))
 
 ## Diagrama de Barras
 
@@ -260,7 +262,7 @@ hist(riqueza)
 
 hist(rnorm(20000),col=c("blue","red","orange","green","pink"))
 
-## Aumentando as marcações
+## Aumentando as marcacoes
 
 plot(riqueza~area, cex=1)
 
@@ -272,15 +274,15 @@ plot(riqueza~area, cex=2.5)
 
 plot(riqueza~area, cex=3)
 
-## Inserindo dois gráficos no mesmo objeto
+## Inserindo dois graficos no mesmo objeto
 
 par(mfrow=c(2,1), cex=0.6)
 
 plot(riqueza~area)
 
-boxplot(riqueza~area.cate)
+boxplot(riqueza~area.cate, horizontal = TRUE, col = c("grey","gold"))
 
-## Inserindo uma reta no gráfico
+## Inserindo uma reta no grafico
 
 par(mfrow=c(1,1))
 
@@ -288,7 +290,7 @@ plot(riqueza~area)
 
 abline(15,0.35)
 
-## Inserindo quadrantes conforme a média 
+## Inserindo quadrantes conforme a media 
 
 plot(riqueza~area)
 
@@ -300,19 +302,17 @@ abline(h=mean(riqueza))
 ## Inserindo texto
 
 plot(riqueza~area)
-text(55,43,"Ponto Mais Distante >>")
+text(79,43,"Ponto Mais Distante >>")
 
-
-x11()
 
 ## Abrindo numa nova janela
 
 x11()
 
 plot(riqueza~area)
-text(55,43,"Ponto Mais Distante >>")
+text(79,43,"Ponto Mais Distante >>")
 
-## Salvando o gráfico em arquivo
+## Salvando o grafico em arquivo
 
 jpeg(filename = "Grafico_R.jpg", width = 1080, height = 1080, 
      units = "px", pointsize = 12, quality = 100,
@@ -325,10 +325,8 @@ boxplot(riqueza~area.cate)
 
 dev.off()
 
-#--------------------------------#
-#     Paramos aqui em 06/04      #
 
-# ETL Básico em R
+# ETL Basico em R
 
 ## criando tabela com os valores abaixo:
 
@@ -341,9 +339,9 @@ metas <- data.frame(vendedor=c(07,13,14,21,26,39),meta=c(2000,800,1250,1050,1400
 metas
 
 
-# Junções
+# Juncoes
 
-## Juntar informações numa única tabela
+## Juntar informacoes numa �nica tabela
 
 valida_metas <- merge(vendas,metas,"vendedor")
 
@@ -363,39 +361,39 @@ result_mes <- data.frame((valida_metas %>%
                                              vendas= sum(vendas, na.rm = TRUE)
                             )),
                          row.names = NULL)
- 
+
 View(result_mes)
 
- 
-# Transformações
-## A meta está em reais e as vendas em dolares
+
+# Transformacoes
+## A meta esta em reais e as vendas em dolares
 
 result_mes$vendas <- result_mes$vendas*3.9
 
 result_mes
 
-# Criação de Variáveis
+# Criacao de Variaveis
 ## Criar campo para que seja validado quem atingiu a meta
 
-result_mes$ating_meta <- ifelse(result_mes$vendas>=result_mes$meta,"SIM","NÃO")
+result_mes$ating_meta <- ifelse(result_mes$vendas>=result_mes$meta,"SIM","NaO")
 
 result_mes
 
 #-----------------------------------------------------------#
 
-# Cálculos mais complexos
+# Calculos mais complexos
 
-## Correlação entre duas variáveis
+## Correlacao entre duas variaveis
 
-cor.test(x,y)
+cor.test(riqueza,area)
 
-# Ajustando um modelo de regreção linear >> "y = f(x)" or "y = B0 + (B1 * x)"
+# Ajustando um modelo de regrecao linear >> "y = f(x)" ou "y = B0 + (B1 * x)"
 
-## E guardando as informações na variável lm_1
+## E guardando as informacoes na variavel lm_1
 
-lm_1<-lm(y ~ x)    
+lm_1<-lm(riqueza ~ area)    
 
-## Mostrando o modelo construído
+## Mostrando o modelo construido
 
 print(lm_1)           
 
@@ -403,23 +401,23 @@ print(lm_1)
 
 summary(lm_1)          
 
-## Dimensionando uma janela 2 por 2 (4 Gráficos)
+## Dimensionando uma janela 2 por 2 (4 graficos)
 
 par(mfrow=c(2, 2))    
 
-## Explicação Gráfica do Modelo
+## Explicacao Grafica do Modelo
 
 plot(lm_1)   
 
 #-----------------------------------------------------------#
 
-# Verificando o poder gráfico do R
+# Verificando o poder grafico do R
 
 library(caTools)        # external package providing write.gif function 
 jet.colors<-colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan", "#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))
 m<-1200                # define size
 C<-complex( real=rep(seq(-1.8,0.6, length.out=m), each=m ),
-             imag=rep(seq(-1.2,1.2, length.out=m), m ) )
+            imag=rep(seq(-1.2,1.2, length.out=m), m ) )
 C<-matrix(C,m,m)       # reshape as square matrix of complex numbers
 Z<-0                   # initialize Z to zero
 X<-array(0, c(m,m,50)) # initialize output 3D array 
