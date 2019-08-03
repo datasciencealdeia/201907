@@ -8,7 +8,7 @@ SELECT count(*) FROM ds_ncm;
 
 --Procurar o código de... Aveia
 SELECT * FROM ds_ncm WHERE no_ncm_por='Aveia';
-SELECT * FROM ds_ncm WHERE no_ncm_por like '%Aveia%';
+SELECT * FROM ds_ncm WHERE upper(no_ncm_por) like '%FEIJ%O%';
 
 SELECT UPPER('Aveia');
 SELECT LOWER('Aveia');
@@ -19,11 +19,11 @@ SELECT * FROM ds_ncm WHERE UPPER(no_ncm_por) like '%AVEIA%';
 SELECT COUNT(*) FROM ds_exportacoes;
 
 --Fazendo o JOIN entre as tabelas. Bora derrubar o servidor? ISso é um cartesiano
-SELECT 
+/*SELECT 
 *
 FROM 
 ds_exportacoes
-,ds_ncm;
+,ds_ncm;*/
 --NUNCA FAREI!!!
 
 --Jeito certo
