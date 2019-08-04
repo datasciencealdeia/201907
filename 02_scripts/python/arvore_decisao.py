@@ -2,9 +2,15 @@
 # Curso Noções Data Science - Aldeia
   
 import pandas as pd 
+import pydotplus
 from sklearn.metrics import confusion_matrix 
-from sklearn.tree import DecisionTreeClassifier 
-from sklearn.metrics import accuracy_score 
+from sklearn.tree import DecisionTreeClassifier, export_graphviz
+from sklearn.metrics import accuracy_score
+from sklearn.externals.six import StringIO  
+
+n_classes = 2
+caracteristicas=['Laranja','Branco','Azul Escuro','Azul Jeans','Marrom']
+rotulos=['bart','homer']
     
 treino = pd.read_csv('/home/ds/git/201907/03_dados/desafio pessoal/treino.csv', sep= ';', header = None) 
 teste = pd.read_csv('/home/ds/git/201907/03_dados/desafio pessoal/teste.csv', sep= ';', header = None)
@@ -35,3 +41,8 @@ print ("Acurácia: %.2f%%" %accur)
 cm = confusion_matrix(y_teste, y_predito, labels=['homer','bart'])
 print ("Matriz Confusão: \n")
 print (cm)
+
+dot_data = StringIO()
+export_graphviz(classificador, out_file=dot_data, filled=True, rounded=True, special_characters=True, feature_names=caracteristicas, class_names=rotulos)
+graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
+graph.write_png("/home/ds/git/201907/03_dados/desafio pessoal/dtree.png")
