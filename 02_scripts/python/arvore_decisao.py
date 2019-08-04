@@ -23,7 +23,7 @@ X_teste, y_teste = teste.values[:, 0:5], teste.values[:, 6]
 classificador = DecisionTreeClassifier(random_state = 0) 
 
 # Ajusta e gera o modelo treinado com base nas features/características 
-classificador.fit(X_treino, y_treino) 
+classificador = classificador.fit(X_treino, y_treino) 
 
 # Realiza a predição com novos valores / teste
 y_predito = classificador.predict(X_teste) 
@@ -46,3 +46,5 @@ dot_data = StringIO()
 export_graphviz(classificador, out_file=dot_data, filled=True, rounded=True, special_characters=True, feature_names=caracteristicas, class_names=rotulos)
 graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
 graph.write_png("/home/ds/git/201907/03_dados/desafio pessoal/dtree.png")
+
+
